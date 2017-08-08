@@ -10,18 +10,20 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == 'GoldPrice') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text' ) {
 			// Get text sent
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+			
+			if($text == 'GoldPrice')
+			{
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text.' auto reply from revones report bot'
+				'text' => $text.' auto reply from revones report bot 2'
 			];
-
+			}
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
