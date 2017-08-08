@@ -2,8 +2,10 @@
 $access_token = 'P5Qde5iLJeTX9rFoXFoZXbqQX5EsGhUpeYF3Srzbaks051jOntZpiYO08movDIP1BCF6n4EbiPZSTlgtVNEuZcNG1CINvBp22vSWAx7UR+5kKbk1ymZfJS71CYd538jx1GEX/rIclRVfwaqXo59tjwdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
 $content = file_get_contents('php://input');
+$getgoldprice = file_get_contents('http://122.155.10.6/wisdomsbe/LineGoldPrice');
 // Parse JSON
 $events = json_decode($content, true);
+$events2 = json_decode($getgoldprice, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -11,7 +13,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == 'GoldPrice') {
 			// Get text sent
-			$text = $event['message']['text'];
+			$text = $events2['text']."\n".$events2['sales1'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
