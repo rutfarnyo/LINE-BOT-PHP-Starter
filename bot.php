@@ -1,6 +1,10 @@
+
 <?php
  
-$strAccessToken = "ACCESS_TOKEN";
+//$strAccessToken = "ACCESS_TOKEN";
+$strAccessToken = 'P5Qde5iLJeTX9rFoXFoZXbqQX5EsGhUpeYF3Srzbaks051jOntZpiYO08movDIP1BCF6n4EbiPZSTlgtVNEuZcNG1CINvBp22vSWAx7UR+5kKbk1ymZfJS71CYd538jx1GEX/rIclRVfwaqXo59tjwdB04t89/1O/w1cDnyilFU=';
+
+// Get POST body content
  
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
