@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == 'GoldPrice') {
 			// Get text sent
-			$text = $events2['text']."\n".$events2['sales1'];
+			$text = "\n".$events2['text']."\nทองแท่งขาย : ".$events2['sale1']."\nทองแท่งซื้อ : ".$events2['buy1']."\nทองรูปประพรรณขาย : ".$events2['sale2']."\nทองรูปประพรรณซื้อ : ".$events2['buy2'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
